@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../../main";
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { FaYoutube, FaLinkedin } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 
 const Footer = () => {
@@ -10,12 +10,6 @@ const Footer = () => {
     <footer className={isAuthorized ? "footerShow" : "footerHide"}>
       <div>&copy; All Rights Reserved By SakshiNikharge.</div>
       <div>
-        {/* <Link
-          to={""}
-          target="_blank"
-        >
-          <FaFacebookF />
-        </Link> */}
         <Link to={"https://www.youtube.com/@36_sakshinikharge92"} target="_blank">
           <FaYoutube />
         </Link>

@@ -1,21 +1,21 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./App.css";
 import { Context } from "./main";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
+import { Toaster } from "react-hot-toast";
+import axios from "axios";
 import Navbar from "./Components/Layout/Navbar";
 import Footer from "./Components/Layout/Footer";
 import Home from "./Components/Home/Home";
 import Jobs from "./Components/Job/Jobs";
 import JobDetails from "./Components/Job/JobDetails";
-import MyJobs from "./Components/Job/MyJobs";
-import PostJobs from "./Components/Job/PostJobs";
 import Application from "./Components/Application/Application";
 import MyApplications from "./Components/Application/MyApplications";
+import PostJob from "./Components/Job/PostJobs";
 import NotFound from "./Components/NotFound/NotFound";
-import axios from "axios";
-import { Toaster } from "react-hot-toast";
+import MyJobs from "./Components/Job/MyJobs";
 
 const App = () => {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
@@ -39,7 +39,7 @@ const App = () => {
 
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -47,15 +47,15 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/job/getall" element={<Jobs />} />
           <Route path="/job/:id" element={<JobDetails />} />
-          <Route path="/job/post" element={<PostJobs />} />
-          <Route path="/job/me" element={<MyJobs />} />
           <Route path="/application/:id" element={<Application />} />
-          <Route path="/application/me" element={<MyApplications />} />
+          <Route path="/applications/me" element={<MyApplications />} />
+          <Route path="/job/post" element={<PostJob />} />
+          <Route path="/job/me" element={<MyJobs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
         <Toaster />
-      </Router>
+      </BrowserRouter>
     </>
   );
 };
