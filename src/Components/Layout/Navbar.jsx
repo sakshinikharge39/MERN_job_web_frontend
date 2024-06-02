@@ -20,6 +20,7 @@ const Navbar = () => {
       setIsAuthorized(true);
     }
   }
+  // console.log(isAuthorized,"navbar ")
 
   return (
     <>

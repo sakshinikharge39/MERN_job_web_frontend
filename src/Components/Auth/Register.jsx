@@ -40,14 +40,13 @@ const Register = () => {
       setIsAuthorized(true);
     } catch (error) {
       toast.error(error.response.data.message);
-      console.log(error)
-      
     }
   };
 
-  if (isAuthorized) {
-    return <Navigate to={"/"} />;
+  if(isAuthorized){
+    return <Navigate to={'/'}/>
   }
+
 
   return (
     <>
